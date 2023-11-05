@@ -1,0 +1,28 @@
+{
+  "name": "opju-exam-portal-assessment",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "cypress:open": "cypress open",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@mui/material": "5.14.16",
+    "@reduxjs/toolkit": "1.9.5",
+    "axios": "1.4.0",
+    "framer-motion": "10.15.0",
+    "next": "14.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "2.4.1",
+    "react-redux": "8.1.2"
+  },
+  "devDependencies": {
+    "cypress": "13.4.0"
+  }
+}
