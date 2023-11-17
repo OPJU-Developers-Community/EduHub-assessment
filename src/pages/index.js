@@ -10,7 +10,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Next.js Project</h1>
+        <h1 className="text-3xl font-bold underline bg-red-200 py-10">
+          Next.js Project
+        </h1>
       </main>
     </>
   );
