@@ -48,7 +48,7 @@ export default function Login() {
 
             <h5 className="font-medium text-sm m-0 auto text-center text-gray-900">
               Don't have an account?
-              <a href="#" className="font-medium text-blue-600 text-sm hover:underline p-0 cursor-pointer">
+              <a href="#" className="font-medium text-blue-600 text-sm hover:underline p-0 ml-1 cursor-pointer">
                 Sign up
               </a>
             </h5>
