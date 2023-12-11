@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Login from "@/organisms/Login";
+import Login from "./login";
 
 export default function Home() {
   return (
