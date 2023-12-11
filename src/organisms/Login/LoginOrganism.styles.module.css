@@ -1,0 +1,56 @@
+/* #6B7180 */
+.wrapper {
+    @apply flex h-screen;
+}
+
+.leftSection {
+    @apply w-1/3 flex items-center justify-center bg-blue-500 p-0 sm:p-6;
+}
+
+.rightSection {
+    @apply w-2/3 flex items-center;
+}
+
+.loginBox {
+    @apply h-1/2 w-full ml-20;
+}
+
+.title {
+    @apply m-0 pb-2 text-gray-800 text-3xl font-bold;
+}
+
+.subtitle {
+    @apply pb-3 text-gray-800 text-xl font-semibold;
+}
+
+.label {
+    @apply block text-gray-700 text-base font-semibold mb-2;
+}
+
+.inputContainer {
+    @apply flex items-center justify-start gap-2.5 p-0 w-[364px] h-[52px] px-4 py-3.5 rounded-lg border mb-4;
+  
+    .inputField {
+      @apply m-2 w-full h-full font-normal text-lg text-gray-900 focus:outline-none;
+    }
+  
+    .clearButton img{
+      @apply w-6 h-6 justify-center items-center flex;
+    }
+
+    .clearButton Button {
+        @apply w-4 h-4 justify-center items-center flex;
+    }
+
+  }
+  
+
+
+.forgetPassBtn {
+    @apply block font-semibold text-sm mb-7;
+}
+
+.signInBtn {
+    @apply w-[364px] h-12 pl-[23px] pr-6 py-3 bg-blue-500 rounded-lg text-white text-lg font-medium;
+}
+
