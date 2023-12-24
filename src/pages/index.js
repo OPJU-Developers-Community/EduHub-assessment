@@ -1,3 +1,4 @@
+import CommonTemplate from "@/templates/CommonTemplate/CommonTemplate";
 import Head from "next/head";
 
 export default function Home() {
@@ -10,9 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline bg-red-200 py-10">
-          Next.js Project
-        </h1>
+        <CommonTemplate>
+          <h1 className="text-2xl">Dashboard</h1>
+        </CommonTemplate>
       </main>
     </>
   );
