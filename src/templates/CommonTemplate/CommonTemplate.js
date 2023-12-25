@@ -44,11 +44,17 @@ const CommonTemplate = (props) => {
               </span>
             </Link>
           </div>
-          <img
-            src={defaultProfilePic}
-            className="rounded-full object-cover w-[44px] h-[44px]"
-            alt="avatar"
-          />
+          <div className="flex items-center">
+            <img
+              src={defaultProfilePic}
+              className="rounded-full object-cover w-[36px] h-[36px] md:w-[44px] md:h-[44px]"
+              alt="avatar"
+            />
+            <div className="ml-1 hidden md:block">
+              <p className="capitalize font-semibold text-gray-900">profile name</p>
+              <p className="capitalize font-medium text-gray-700">assessment coordinator</p>
+            </div>
+          </div>
         </div>
       </nav>
 
