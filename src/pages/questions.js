@@ -1,9 +1,10 @@
 import CommonTemplate from "@/templates/CommonTemplate/CommonTemplate";
+import QuestionsTemplate from "@/templates/QuestionsTemplate/QuestionsTemplate";
 
 const Questions = () => {
   return (
     <CommonTemplate>
-      <h1 className="text-2xl">Questions page</h1>
+      <QuestionsTemplate />
     </CommonTemplate>
   );
 };
