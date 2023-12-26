@@ -20,12 +20,12 @@ const FilterTab = (props) => {
   };
 
   return (
-    <ul className="flex bg-gray-100 w-fit p-2 rounded-md">
+    <ul className="flex bg-gray-100 border w-fit p-2 rounded-md">
       {tabs.map((tab, i) => (
         <li className="px-1" key={`${tab}-${i}`}>
           <button
-            className={cn("p-2 rounded-md text-sm font-medium", {
-              "bg-gray-800 text-white": tab.query === selectedTab,
+            className={cn("p-2 rounded-md text-sm font-medium hover:bg-gray-200", {
+              "bg-gray-800 text-white hover:bg-gray-800": tab.query === selectedTab,
             })}
             onClick={() => handleCurrentTab(tab.query)}
           >
