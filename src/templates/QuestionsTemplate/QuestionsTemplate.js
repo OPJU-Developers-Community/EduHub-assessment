@@ -2,46 +2,23 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+// components
+import FilterTab from "@/molecules/FilterTab/FilterTab";
+import Button from "@/atoms/Button";
+
 // utils
 import cn from "@/utils/cn";
+import { questionPageFilterTab } from "@/utils/constants";
 
 const QuestionsTemplate = () => {
-  const [tab, setTab] = useState("questions");
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push({ query: { tab: tab } });
-  }, [tab]);
-
-  const handleCurrentTab = (selectedTab) => {
-    setTab(selectedTab);
-  };
-
   return (
     <section className="mt-2">
-      <p className="text-3xl font-medium">Questions</p>
-      <ul className="mt-8 flex bg-gray-100 w-fit p-2 rounded-md">
-        <li className="px-1">
-          <button
-            className={cn("p-2 rounded-md font-normal", {
-              "bg-purple-600 text-white": tab === "questions",
-            })}
-            onClick={() => handleCurrentTab("questions")}
-          >
-            Questions
-          </button>
-        </li>
-        <li className="px-1">
-          <button
-            className={cn("p-2 rounded-md font-normal", {
-              "bg-purple-600 text-white": tab === "questions-set",
-            })}
-            onClick={() => handleCurrentTab("questions-set")}
-          >
-            Questions set
-          </button>
-        </li>
-      </ul>
+      <div className="flex flex-col justify-between md:flex-row md:items-center">
+        <FilterTab tabs={questionPageFilterTab} />
+        <Button className="text-white w-fit bg-indigo-700 focus:bg-indigo-700 px-3 mt-2 md:mt-0">
+          Add questions
+        </Button>
+      </div>
     </section>
   );
 };

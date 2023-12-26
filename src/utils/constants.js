@@ -30,3 +30,14 @@ export const navLinks = [
     icon: <IconBuddyEvaluationIcon />,
   },
 ];
+
+export const questionPageFilterTab = [
+  {
+    name: "Questions",
+    query: "questions",
+  },
+  {
+    name: "Questions sets",
+    query: "questions-sets",
+  },
+];
