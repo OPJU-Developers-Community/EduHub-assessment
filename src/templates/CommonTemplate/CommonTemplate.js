@@ -65,9 +65,9 @@ const CommonTemplate = (props) => {
               <li
                 key={i}
                 className={cn(
-                  "flex items-center pl-3 pr-2 py-3 rounded-md mb-7",
+                  "flex items-center pl-3 pr-2 pt-2 pb-3 rounded-md mb-7",
                   {
-                    "group is-selected bg-blue-600":
+                    "group is-selected bg-indigo-600":
                       router.pathname === item.path,
                   }
                 )}
