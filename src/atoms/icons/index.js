@@ -368,3 +368,55 @@ export const EmptyBoxIcon = (props) => {
     </svg>
   );
 };
+
+export const IconBuddyAddIcon = (props) => {
+  const { className } = props;
+  return (
+    <svg
+      className={cn("inline w-5 h-5 me-1", className)}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+        <path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12m10-8a8 8 0 1 0 0 16a8 8 0 0 0 0-16" />
+        <path d="M13 7a1 1 0 1 0-2 0v4H7a1 1 0 1 0 0 2h4v4a1 1 0 1 0 2 0v-4h4a1 1 0 1 0 0-2h-4z" />
+      </g>
+    </svg>
+  );
+};
+
+export const IconBuddyArrowDownIcon = (props) => {
+  const { className } = props;
+  return (
+    <svg
+      className={cn("inline w-5 h-5 me-1", className)}
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496"
+      />
+    </svg>
+  );
+};
+
+export const IconBuddyDottedLineIcon = (props) => {
+  const { className } = props;
+  return (
+    <svg
+      className={cn("inline w-5 h-5 me-1", className)}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 12v.01M8 12v.01m4-.01v.01m4-.01v.01m4-.01v.01"
+      />
+    </svg>
+  );
+};
