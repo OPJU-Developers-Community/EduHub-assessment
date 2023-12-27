@@ -34,7 +34,11 @@ const QuestionsTemplate = () => {
         <EmptyMessageBox message="Looks like you haven't created any questions." />
       </div>
 
-      {isAddQuestionModalOpen && <AddQuestionsModal />}
+      {isAddQuestionModalOpen && (
+        <AddQuestionsModal
+          handleIsAddQuestionModalOpen={handleIsAddQuestionModalOpen}
+        />
+      )}
     </section>
   );
 };
