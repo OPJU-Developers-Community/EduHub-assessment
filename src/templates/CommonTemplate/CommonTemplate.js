@@ -1,6 +1,7 @@
 // libs
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 // components
@@ -16,7 +17,13 @@ import { defaultProfilePic, navLinks } from "@/utils/constants";
 
 const CommonTemplate = (props) => {
   const { children } = props;
+  const [isSideNavOpened, setIsSideNavOpened] = useState(false);
+
   const router = useRouter();
+
+  const handleSideNavOpened = () => {
+    setIsSideNavOpened((prev) => !prev);
+  };
 
   return (
     <>
@@ -29,6 +36,7 @@ const CommonTemplate = (props) => {
               className="inline-flex items-center p-1 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none"
               aria-controls="navbar-default"
               aria-expanded="false"
+              onClick={handleSideNavOpened}
             >
               <span className="sr-only">Open main menu</span>
               <IconBuddyMenuIcon className={"w-[27px] h-[27px]"} />
@@ -51,15 +59,31 @@ const CommonTemplate = (props) => {
               alt="avatar"
             />
             <div className="ml-1 hidden md:block">
-              <p className="capitalize font-semibold text-gray-900">profile name</p>
-              <p className="capitalize font-medium text-gray-700">assessment coordinator</p>
+              <p className="capitalize font-semibold text-gray-900">
+                profile name
+              </p>
+              <p className="capitalize font-medium text-gray-700">
+                assessment coordinator
+              </p>
             </div>
           </div>
         </div>
       </nav>
 
-      <aside className="fixed left-0 z-40 w-16 h-screen border-r border-gray-300 transition-transform -translate-x-full md:translate-x-0">
-        <div className="h-full bg-white pt-24 pb-20 flex flex-col justify-between">
+      <aside
+        className={`fixed left-0 z-40 w-16 h-screen border-r border-gray-300 transition-transform  ${
+          isSideNavOpened
+            ? "-translate-x-0 w-full md:w-16"
+            : "-translate-x-full"
+        } md:translate-x-0`}
+      >
+        <div
+          className={`h-full bg-white pt-24 pb-20 flex flex-col justify-between  ${
+            isSideNavOpened
+              ? "items-start ml-4 md:ml-0 md:items-center"
+              : "items-center"
+          }`}
+        >
           <ul className="flex flex-col items-center">
             {navLinks.map((item, i) => (
               <li
