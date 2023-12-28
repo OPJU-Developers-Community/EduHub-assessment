@@ -1,5 +1,5 @@
 // libs
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // icons
 import {
@@ -8,11 +8,27 @@ import {
   IconBuddyDottedLineIcon,
 } from "@/atoms/icons";
 
+// utils
+import {
+  multipleChoiceTemplate,
+  shortLongQuestionTemplate,
+} from "@/utils/questions.template";
+
 const QuestionCreator = (props) => {
-  const { createdQuestions, question } = props;
+  const {
+    createdQuestions,
+    question,
+    setCreatedQuestions,
+    handleAddOptions,
+    handleUpdateQuestionType,
+  } = props;
 
   const [selectedQuestionType, setSelectedQuestionType] =
     useState("multiple-choice");
+
+  useEffect(() => {
+    handleUpdateQuestionType(question.id, selectedQuestionType);
+  }, [selectedQuestionType]);
 
   const handleSelectedQuestionType = (e) => {
     setSelectedQuestionType(e.target.value);
@@ -37,17 +53,26 @@ const QuestionCreator = (props) => {
             className="outline-none border-b focus:border-gray-400 w-4/5 py-2 px-1"
             placeholder="Question title"
           />
-          <div className="my-3">
-            <div className="flex items-center">
-              <button className="ring-violet-700 focus:ring-2 rounded-full flex items-center justify-center me-1">
-                <IconBuddyAddIcon className="text-violet-800 me-0" />
-              </button>
-              <input
-                className="outline-none border-b focus:border-gray-400 py-2 px-1 "
-                placeholder="Option"
-              />
-            </div>
-          </div>
+          {question.options && (
+            <>
+              {question.options?.map((option, i) => (
+                <div className="my-3">
+                  <div className="flex items-center">
+                    <button
+                      className="ring-violet-700 focus:ring-2 rounded-full flex items-center justify-center me-1"
+                      onClick={() => handleAddOptions(question.id)}
+                    >
+                      <IconBuddyAddIcon className="text-violet-800 me-0" />
+                    </button>
+                    <input
+                      className="outline-none border-b focus:border-gray-400 py-2 px-1 "
+                      placeholder="Option"
+                    />
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
       <div className="flex-col justify-center items-center">

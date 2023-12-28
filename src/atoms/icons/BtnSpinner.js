@@ -3,7 +3,7 @@ import React from "react";
 export const BtnSpinner = () => {
   return (
     <svg
-      aria-hidden="true"
+      ariaHidden="true"
       role="status"
       className="inline w-4 h-4 me-2 text-white animate-spin"
       viewBox="0 0 100 101"

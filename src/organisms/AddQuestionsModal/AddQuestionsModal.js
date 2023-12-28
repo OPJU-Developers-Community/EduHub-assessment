@@ -6,9 +6,17 @@ import Button from "@/atoms/Button";
 import QuestionCreator from "@/molecules/QuestionCreator/QuestionCreator";
 import { IconBuddyAddIcon, IconBuddyDottedLineIcon } from "@/atoms/icons";
 
+// utils
+import {
+  multipleChoiceTemplate,
+  shortLongQuestionTemplate,
+} from "@/utils/questions.template";
+
 const AddQuestionsModal = (props) => {
   const { handleIsAddQuestionModalOpen } = props;
-  const [createdQuestions, setCreatedQuestions] = useState([{ id: 1 }]);
+  const [createdQuestions, setCreatedQuestions] = useState([
+    multipleChoiceTemplate,
+  ]);
 
   const handleModalClose = () => {
     handleIsAddQuestionModalOpen((prev) => !prev);
@@ -17,8 +25,39 @@ const AddQuestionsModal = (props) => {
   const handleAddNewQuestion = () => {
     setCreatedQuestions((prev) => [
       ...prev,
-      new Object({ id: prev.length + 1 }),
+      { ...multipleChoiceTemplate, id: prev.length + 1 },
     ]);
+  };
+
+  const handleUpdateQuestionType = (id, questionType) => {
+    const updatedQuestions = createdQuestions.map((item) => {
+      if (item.id === id) {
+        if (questionType === "multiple-choice") {
+          return { ...multipleChoiceTemplate, id: item.id };
+        }
+
+        if (questionType === "short-long-question") {
+          return { ...shortLongQuestionTemplate, id: item.id };
+        }
+      }
+      return item;
+    });
+
+    setCreatedQuestions(updatedQuestions);
+  };
+
+  const handleAddOptions = (id) => {
+    const updatedQuestions = createdQuestions.map((item) => {
+      if (item.id === id) {
+        if (!item.options) {
+          return { ...item, options: [""] };
+        }
+        return { ...item, options: [...item.options, ""] };
+      }
+      return item;
+    });
+
+    setCreatedQuestions(updatedQuestions);
   };
 
   return (
@@ -31,6 +70,9 @@ const AddQuestionsModal = (props) => {
                 key={`${question}-${i}`}
                 createdQuestions={createdQuestions}
                 question={question}
+                setCreatedQuestions={setCreatedQuestions}
+                handleAddOptions={handleAddOptions}
+                handleUpdateQuestionType={handleUpdateQuestionType}
               />
             ))}
             <div className="">
