@@ -13,9 +13,9 @@ export const AddIcon = (props) => {
       <path
         d="M12 5V12M12 12V19M12 12H19M12 12H5"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -185,9 +185,9 @@ export const EmptyBoxIcon = (props) => {
         y2="92.159"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="384.775"
@@ -196,9 +196,9 @@ export const EmptyBoxIcon = (props) => {
         y2="101.47"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="384.775"
@@ -207,9 +207,9 @@ export const EmptyBoxIcon = (props) => {
         y2="110.781"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="119.153"
@@ -218,9 +218,9 @@ export const EmptyBoxIcon = (props) => {
         y2="289.908"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="119.153"
@@ -229,9 +229,9 @@ export const EmptyBoxIcon = (props) => {
         y2="299.218"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="119.153"
@@ -240,9 +240,9 @@ export const EmptyBoxIcon = (props) => {
         y2="308.529"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="505.663"
@@ -251,9 +251,9 @@ export const EmptyBoxIcon = (props) => {
         y2="375.236"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="505.663"
@@ -262,9 +262,9 @@ export const EmptyBoxIcon = (props) => {
         y2="384.546"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <line
         x1="505.663"
@@ -273,9 +273,9 @@ export const EmptyBoxIcon = (props) => {
         y2="393.857"
         fill="none"
         stroke="#b9d4db"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       ></line>
       <circle cx="546.78" cy="202.347" r="13.807" fill="#b9d4db"></circle>
       <circle cx="510.344" cy="212.312" r="7.159" fill="#b9d4db"></circle>
@@ -412,9 +412,9 @@ export const IconBuddyDottedLineIcon = (props) => {
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M4 12v.01M8 12v.01m4-.01v.01m4-.01v.01m4-.01v.01"
       />
     </svg>
