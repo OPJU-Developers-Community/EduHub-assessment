@@ -34,9 +34,7 @@ const AddQuestionsModal = (props) => {
       if (item.id === id) {
         if (questionType === "multiple-choice") {
           return { ...multipleChoiceTemplate, id: item.id };
-        }
-
-        if (questionType === "short-long-question") {
+        } else if (questionType === "short-long-question") {
           return { ...shortLongQuestionTemplate, id: item.id };
         }
       }
