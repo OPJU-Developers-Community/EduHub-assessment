@@ -40,6 +40,7 @@ const QuestionCreator = (props) => {
         <div className="mb-3 relative w-fit">
           <select
             name="questionType"
+            value={selectedQuestionType}
             defaultValue="multiple-choice"
             onChange={handleSelectedQuestionType}
             className="border bg-gray-100 p-2 pr-6 outline-none rounded-md appearance-none focus:ring-2 ring-violet-600"
