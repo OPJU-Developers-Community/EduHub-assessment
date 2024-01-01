@@ -2,7 +2,7 @@ export const multipleChoiceTemplate = {
   id: 1,
   question_type: "multiple-choice",
   question_title: "",
-  options: [""],
+  options: [{ id: 1, option: "" }],
   answers: [""],
 };
 
