@@ -19,7 +19,9 @@ const QuestionCreator = (props) => {
     createdQuestions,
     question,
     setCreatedQuestions,
+    handleInputQuestionTitle,
     handleAddOptions,
+    handleInputAnswer,
     handleUpdateQuestionType,
   } = props;
 
@@ -41,7 +43,6 @@ const QuestionCreator = (props) => {
           <select
             name="questionType"
             value={selectedQuestionType}
-            defaultValue="multiple-choice"
             onChange={handleSelectedQuestionType}
             className="border bg-gray-100 p-2 pr-6 outline-none rounded-md appearance-none focus:ring-2 ring-violet-600"
           >
@@ -54,11 +55,14 @@ const QuestionCreator = (props) => {
           <input
             className="outline-none border-b focus:border-gray-400 w-4/5 py-2 px-1"
             placeholder="Question title"
+            onChange={(e) =>
+              handleInputQuestionTitle(question.id, e.target.value)
+            }
           />
           {question.options && (
             <>
               {question.options?.map((option, i) => (
-                <div className="my-3">
+                <div className="my-3" key={`${option}-${i}`}>
                   <div className="flex items-center">
                     <button
                       className="ring-violet-700 focus:ring-2 rounded-full flex items-center justify-center me-1"
@@ -67,12 +71,20 @@ const QuestionCreator = (props) => {
                       <IconBuddyAddIcon className="text-violet-800 me-0" />
                     </button>
                     <input
-                      className="outline-none border-b focus:border-gray-400 py-2 px-1 "
+                      className="outline-none border-b focus:border-gray-400 py-2 px-1 min-w-[100px]"
                       placeholder="Option"
+                      onChange={(e) =>
+                        handleAddOptions(question.id, option.id, e.target.value)
+                      }
                     />
                   </div>
                 </div>
               ))}
+              <input
+                onChange={(e) => handleInputAnswer(question.id, e.target.value)}
+                className="outline-none border-b focus:border-gray-400 py-2 px-2 min-w-[100px]"
+                placeholder="Answer"
+              />
             </>
           )}
         </div>

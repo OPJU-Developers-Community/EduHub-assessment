@@ -44,13 +44,64 @@ const AddQuestionsModal = (props) => {
     setCreatedQuestions(updatedQuestions);
   };
 
-  const handleAddOptions = (id) => {
+  const handleAddOptions = (questionId, optionId, value = "") => {
+    const question = createdQuestions.filter((item) => item.id === questionId);
+
+    const isOptionExist = question[0].options?.filter(
+      (item) => item.id === optionId
+    );
+
+    let updatedQuestions;
+
+    // if optionId found then update the options
+    if (isOptionExist && isOptionExist.length >= 1) {
+      const updatedOption = question[0].options?.map((item) => {
+        if (item.id === optionId) {
+          return { ...item, option: value };
+        }
+        return item;
+      });
+
+      updatedQuestions = createdQuestions.map((item) => {
+        if (item.id == questionId) {
+          return { ...item, options: updatedOption };
+        }
+        return item;
+      });
+    } else {
+      // if optionId not found then create an empty question
+      updatedQuestions = createdQuestions.map((item) => {
+        if (item.id === questionId) {
+          return {
+            ...item,
+            options: [
+              ...item.options,
+              { id: item.options.length + 1, option: value },
+            ],
+          };
+        }
+        return item;
+      });
+    }
+
+    setCreatedQuestions(updatedQuestions);
+  };
+
+  const handleInputAnswer = (id, value) => {
     const updatedQuestions = createdQuestions.map((item) => {
       if (item.id === id) {
-        if (!item.options) {
-          return { ...item, options: [""] };
-        }
-        return { ...item, options: [...item.options, ""] };
+        return { ...item, answers: [value] };
+      }
+      return item;
+    });
+
+    setCreatedQuestions(updatedQuestions);
+  };
+
+  const handleInputQuestionTitle = (questionId, value) => {
+    const updatedQuestions = createdQuestions.map((item) => {
+      if (item.id === questionId) {
+        return { ...item, question_title: value };
       }
       return item;
     });
@@ -69,7 +120,9 @@ const AddQuestionsModal = (props) => {
                 createdQuestions={createdQuestions}
                 question={question}
                 setCreatedQuestions={setCreatedQuestions}
+                handleInputQuestionTitle={handleInputQuestionTitle}
                 handleAddOptions={handleAddOptions}
+                handleInputAnswer={handleInputAnswer}
                 handleUpdateQuestionType={handleUpdateQuestionType}
               />
             ))}
