@@ -3,6 +3,7 @@ export const multipleChoiceTemplate = {
   question_type: "multiple-choice",
   question_title: "",
   options: [""],
+  answers: [""],
 };
 
 export const shortLongQuestionTemplate = {
