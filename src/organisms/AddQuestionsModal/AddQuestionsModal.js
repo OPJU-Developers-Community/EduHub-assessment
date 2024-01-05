@@ -109,6 +109,17 @@ const AddQuestionsModal = (props) => {
     setCreatedQuestions(updatedQuestions);
   };
 
+  const handleInputQuestionMark = (questionId, value) => {
+    const updatedQuestions = createdQuestions.map((item) => {
+      if (item.id === questionId) {
+        return { ...item, mark: value };
+      }
+      return item;
+    });
+
+    setCreatedQuestions(updatedQuestions);
+  };
+
   return (
     <div className="fixed top-0 left-0 bg-modal-rgba w-screen h-screen flex justify-center items-center">
       <div className="mt-14 w-11/12 h-[80vh] bg-white border rounded-xl shadow-lg md:w-6/12 md:mt-20">
@@ -124,6 +135,7 @@ const AddQuestionsModal = (props) => {
                 handleAddOptions={handleAddOptions}
                 handleInputAnswer={handleInputAnswer}
                 handleUpdateQuestionType={handleUpdateQuestionType}
+                handleInputQuestionMark={handleInputQuestionMark}
               />
             ))}
             <div className="">

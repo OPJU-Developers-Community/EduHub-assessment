@@ -23,12 +23,14 @@ const QuestionCreator = (props) => {
     handleAddOptions,
     handleInputAnswer,
     handleUpdateQuestionType,
+    handleInputQuestionMark,
   } = props;
 
   const [selectedQuestionType, setSelectedQuestionType] =
     useState("multiple-choice");
 
   useEffect(() => {
+    handleInputQuestionMark(question.id, null);
     handleUpdateQuestionType(question.id, selectedQuestionType);
   }, [selectedQuestionType]);
 
@@ -39,17 +41,27 @@ const QuestionCreator = (props) => {
   return (
     <div className="flex flex-col items-center px-4 w-full">
       <div className="py-4 px-3 border rounded-md w-full">
-        <div className="mb-3 relative w-fit">
-          <select
-            name="questionType"
-            value={selectedQuestionType}
-            onChange={handleSelectedQuestionType}
-            className="border bg-gray-100 p-2 pr-6 outline-none rounded-md appearance-none focus:ring-2 ring-violet-600"
-          >
-            <option value="multiple-choice">Multiple choice</option>
-            <option value="short-long-question">Short/Long question</option>
-          </select>
-          <IconBuddyArrowDownIcon className="h-3 w-3 absolute right-1 top-1/2 transform -translate-y-1/2" />
+        <div className="flex flex-col md:flex-row md:items-center mb-3">
+          <div className="relative w-fit">
+            <select
+              name="questionType"
+              value={selectedQuestionType}
+              onChange={handleSelectedQuestionType}
+              className="border bg-gray-100 p-2 pr-6 outline-none rounded-md appearance-none focus:ring-2 ring-violet-600"
+            >
+              <option value="multiple-choice">Multiple choice</option>
+              <option value="short-long-question">Short/Long question</option>
+            </select>
+            <IconBuddyArrowDownIcon className="h-3 w-3 absolute right-1 top-1/2 transform -translate-y-1/2" />
+          </div>
+          <input
+            className="mt-2 md:ml-3 md:mt-0 border bg-gray-100 w-[100px] p-2 pr-6 outline-none rounded-md appearance-none focus:ring-2 ring-violet-600"
+            placeholder="Mark"
+            value={question.mark || 0}
+            onChange={(e) =>
+              handleInputQuestionMark(question.id, +e.target.value)
+            }
+          />
         </div>
         <div>
           <input
