@@ -59,7 +59,7 @@ const SideNav = (props) => {
               return (
                 <Button
                   key={`${label}-${i}`}
-                  variant={router.pathname === source ? "secondary" : "ghost"}
+                  variant={router.pathname === source ? "default" : "ghost"}
                   className="w-full justify-start my-1"
                   asChild
                 >
