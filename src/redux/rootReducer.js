@@ -1,10 +1,11 @@
-const { combineReducers } = require("@reduxjs/toolkit");
+import { combineReducers } from "@reduxjs/toolkit";
 
-// slices
-import questionsReducer from "./slices/questionsSlice";
+import examManagerReducer from "./slices/examManager.slice";
+import examsReducer from "./slices/exams.slice";
 
 const rootReducer = combineReducers({
-  questions: questionsReducer,
+  exams: examsReducer,
+  examManager: examManagerReducer,
 });
 
 export default rootReducer;
