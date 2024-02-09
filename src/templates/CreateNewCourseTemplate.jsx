@@ -13,11 +13,19 @@ import {
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const schema = yup.object({
   title: yup.string().required("Please add a course title"),
   category: yup.string().required("Please add a category"),
+  difficulty: yup.string().required("Please select course difficulty"),
 });
 
 const CreateNewCourseTemplate = () => {
@@ -28,6 +36,7 @@ const CreateNewCourseTemplate = () => {
       subtitle: "",
       description: "",
       category: "",
+      difficulty: "",
     },
   });
 
@@ -36,13 +45,39 @@ const CreateNewCourseTemplate = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row">
+    <div className="flex flex-col-reverse lg:flex-row mb-10">
       <div className="w-[95%] max-w-[800px] lg:mr-10">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSaveChanges)}
             className="space-y-5"
           >
+            <FormField
+              control={form.control}
+              name="difficulty"
+              render={({ field }) => (
+                <FormItem className="w-fit pr-2">
+                  <FormLabel>Difficulty</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select course difficulty" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="beginner">Beginner</SelectItem>
+                      <SelectItem value="intermediate">Intermediate</SelectItem>
+                      <SelectItem value="advanced">Advanced</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <FormField
               control={form.control}
               name="title"
