@@ -2,9 +2,13 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { sideNavLinks, sideNavLinksLearn } from "@/lib";
+import {
+  sideNavLinks,
+  sideNavLinksLearn,
+  sideNavNestedYourCoursesLinks,
+} from "@/lib";
 
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { IconBuddyProfileIcon } from "./icon";
 
 import { Button } from "@/components/ui/button";
@@ -12,6 +16,7 @@ import { Button } from "@/components/ui/button";
 const SideNav = (props) => {
   const { isNavShow = "", setIsNavShow = () => {} } = props;
   const router = useRouter();
+  console.log(router);
 
   return (
     <div
@@ -53,24 +58,69 @@ const SideNav = (props) => {
             })}
           </div>
 
-          <div className="space-y-2 mt-5 border-t pt-2">
-            {sideNavLinksLearn.map((item, i) => {
-              const { label, icon, source } = item;
-              return (
-                <Button
-                  key={`${label}-${i}`}
-                  variant={router.pathname === source ? "default" : "ghost"}
-                  className="w-full justify-start my-1"
-                  asChild
-                >
-                  <Link href={source} className="flex items-center">
-                    {icon}
-                    <span className="capitalize">{label}</span>
-                  </Link>
-                </Button>
-              );
-            })}
-          </div>
+          {router.asPath.includes(
+            `${`/course-manager/${router.query.id}`}`
+          ) && (
+            <div className="space-y-2 mt-5 border-t pt-2">
+              <Button
+                variant="ghost"
+                className="w-full justify-start my-1"
+                asChild
+              >
+                <Link href="/courses" className="flex items-center">
+                  <ArrowLeftIcon className="mr-2" />
+                  <span>Back to courses</span>
+                </Link>
+              </Button>
+
+              {sideNavNestedYourCoursesLinks.map((item, i) => {
+                const { label, icon, source } = item;
+                return (
+                  <Button
+                    key={`${label}-${i}`}
+                    variant={
+                      router.asPath === source(router.query.id)
+                        ? "default"
+                        : "ghost"
+                    }
+                    className="w-full justify-start my-1"
+                    asChild
+                  >
+                    <Link
+                      href={source(router.query.id)}
+                      className="flex items-center"
+                    >
+                      {icon}
+                      <span className="capitalize">{label}</span>
+                    </Link>
+                  </Button>
+                );
+              })}
+            </div>
+          )}
+
+          {!router.asPath.includes(
+            `${`/course-manager/${router.query.id}`}`
+          ) && (
+            <div className="space-y-2 mt-5 border-t pt-2">
+              {sideNavLinksLearn.map((item, i) => {
+                const { label, icon, source } = item;
+                return (
+                  <Button
+                    key={`${label}-${i}`}
+                    variant={router.pathname === source ? "default" : "ghost"}
+                    className="w-full justify-start my-1"
+                    asChild
+                  >
+                    <Link href={source} className="flex items-center">
+                      {icon}
+                      <span className="capitalize">{label}</span>
+                    </Link>
+                  </Button>
+                );
+              })}
+            </div>
+          )}
         </div>
         <div className="mt-5">
           <div>

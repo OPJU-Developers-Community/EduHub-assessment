@@ -43,6 +43,21 @@ export const sideNavLinksLearn = [
   },
 ];
 
+export const sideNavNestedYourCoursesLinks = [
+  {
+    label: "details",
+    source: (id) => `${`/course-manager/${id}/manage`}`,
+  },
+  {
+    label: "curriculum",
+    source: (id) => `${`/course-manager/${id}/manage-curriculum`}`,
+  },
+  {
+    label: "students",
+    source: (id) => `${`/course-manager/${id}/students`}`,
+  },
+];
+
 export const createNewExamField = [
   {
     label: "course code",
