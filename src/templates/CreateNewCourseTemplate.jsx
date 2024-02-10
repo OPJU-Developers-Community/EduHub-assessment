@@ -1,5 +1,7 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -21,6 +23,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "@/components/ui/use-toast";
+
+import {
+  createNewCourse,
+  resetState,
+} from "@/redux/slices/courseManager.slice";
 
 const schema = yup.object({
   title: yup.string().required("Please add a course title"),
@@ -39,9 +47,34 @@ const CreateNewCourseTemplate = () => {
       difficulty: "",
     },
   });
+  const courseManagerState = useSelector((state) => state.courseManager);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (courseManagerState.status === "success") {
+      toast({
+        title: courseManagerState.message,
+        duration: 2000,
+      });
+
+      // reset the state so that
+      // it allow user to navigate to this page again
+      dispatch(resetState());
+
+      router.push("/courses");
+    }
+
+    if (courseManagerState.status === "failed") {
+      toast({
+        title: courseManagerState.message,
+        duration: 2000,
+      });
+    }
+  }, [courseManagerState.status]);
 
   const handleSaveChanges = (data) => {
-    console.log(data);
+    dispatch(createNewCourse(data));
   };
 
   return (

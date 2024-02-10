@@ -48,4 +48,5 @@ const courseManager = createSlice({
   },
 });
 
+export const { resetState } = courseManager.actions;
 export default courseManager.reducer;
