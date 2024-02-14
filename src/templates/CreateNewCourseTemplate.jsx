@@ -29,6 +29,7 @@ import {
   createNewCourse,
   resetState,
 } from "@/redux/slices/courseManager.slice";
+import { useRouter } from "next/router";
 
 const schema = yup.object({
   title: yup.string().required("Please add a course title"),
@@ -48,6 +49,8 @@ const CreateNewCourseTemplate = () => {
     },
   });
   const courseManagerState = useSelector((state) => state.courseManager);
+
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
