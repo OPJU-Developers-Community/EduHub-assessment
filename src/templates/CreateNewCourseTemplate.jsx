@@ -61,10 +61,6 @@ const CreateNewCourseTemplate = () => {
         duration: 2000,
       });
 
-      // reset the state so that
-      // it allow user to navigate to this page again
-      dispatch(resetState());
-
       router.push("/courses");
     }
 
@@ -74,6 +70,12 @@ const CreateNewCourseTemplate = () => {
         duration: 2000,
       });
     }
+
+    return () => {
+      // reset the state so that
+      // it allow user to navigate to this page again
+      dispatch(resetState());
+    };
   }, [courseManagerState.status]);
 
   const handleSaveChanges = (data) => {
